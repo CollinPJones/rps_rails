@@ -12,9 +12,17 @@ class GameController < ApplicationController
     # In the end, make sure you assign the correct values to the
     #   following two variables:
 
-    @computer_move = "Replace this string with the correct value."
+    @computer_move = ["rock","paper","scissors"].sample
+    game_ary = [@user_move, @computer_move]
+    if game_ary[0] == game_ary[1]
+      result_string = "tied"
+    elsif game_ary == ["rock", "paper"] || game_ary == ["paper", "scissors"] || game_ary == ["scissors", "rock"]
+      result_string = "lost"
+    elsif game_ary == ["scissors", "paper"] || game_ary == ["paper", "rock"] || game_ary == ["rock", "scissors"]
+      result_string = "won"
+    end
 
-    @result = "Replace this string with the correct value."
+    @result = result_string
 
     # ===============================================================
     # Your code goes above.
